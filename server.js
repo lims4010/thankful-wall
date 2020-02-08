@@ -17,8 +17,10 @@ app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/posts', require('./routes/api/posts'));
 
 // Serve static assets in production
-app.use(express.static(path.join(__dirname, 'pages/build')));
-
+app.use(express.static('pages/build'));
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'pages', 'build', 'index.html'));
+});
 app.set('trust proxy', true);
 
 const PORT = process.env.PORT || 5000;
