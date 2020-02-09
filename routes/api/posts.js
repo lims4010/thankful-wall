@@ -100,14 +100,14 @@ router.put('/like/:id', async (req, res) => {
 router.put('/unlike/:id', async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
-
+    const ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
     //Check if post has not been liked
-    if (!post.likes.includes(req.ip)) {
+    if (!post.likes.includes(ip)) {
       return res.status(400).json({ msg: 'Post has not yet been liked' });
     }
 
     // Get remove index
-    const removeIndex = post.likes.indexOf(req.ip);
+    const removeIndex = post.likes.indexOf(ip);
     post.likes.splice(removeIndex, 1);
     await post.save();
     res.json(post.likes);
