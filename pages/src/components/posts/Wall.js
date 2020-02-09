@@ -16,7 +16,7 @@ const Posts = ({ getPosts, wall: { posts, loading } }) => {
     <Fragment>
       <h1 className="large text-primary">Posts</h1>
       <p className="lead">
-        <i className="fas fa-user"></i> Welcome to the Community
+        <i className="fas fa-hand-peace"></i> Welcome to the Wall
       </p>
       <PostForm />
       <div className="posts">

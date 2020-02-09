@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
-import Posts from './components/posts/Posts';
+import Wall from './components/posts/Wall';
 
 //Redux
 import { Provider } from 'react-redux';
@@ -28,7 +28,7 @@ const App = () => {
           <section className="container">
             <Alert />
             <Switch>
-              <Route exact path="/" component={Posts} />
+              <Route exact path="/" component={Wall} />
               <Route exact path="/login" component={Login} />
               {/* <PrivateRoute exact path="/posts" component={Posts} /> */}
             </Switch>
