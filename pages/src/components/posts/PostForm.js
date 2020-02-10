@@ -25,7 +25,7 @@ const PostForm = ({ addPost }) => {
           name="text"
           cols="30"
           rows="5"
-          placeholder="Write a post here..."
+          placeholder="What are some things you are thankful for today?"
           value={text}
           onChange={e =>
             setText({ ...postData, [e.target.name]: e.target.value })

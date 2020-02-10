@@ -15,11 +15,10 @@ const PostItem = ({
   return (
     <div class="post bg-white p-1 my-1">
       <div>
-        <h4>{name}</h4>
-      </div>
-      <div>
-        <p class="my-1">{text}</p>
-        <p class="post-date">
+        <p>{text}</p>
+        <p class="my-1 post-date">
+          {name}
+          {' | '}
           Posted on <Moment format="YYYY/MM/DD">{date}</Moment>
         </p>
 
