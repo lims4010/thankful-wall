@@ -86,7 +86,7 @@ router.put('/like/:id', async (req, res) => {
     }
     post.likes.unshift(ip);
     await post.save();
-    res.json(post.likes);
+    res.json(post.likes.length);
   } catch (error) {
     console.error(error.message);
     res.status(500).send('Server error');
@@ -109,7 +109,7 @@ router.put('/unlike/:id', async (req, res) => {
     const removeIndex = post.likes.indexOf(ip);
     post.likes.splice(removeIndex, 1);
     await post.save();
-    res.json(post.likes);
+    res.json(post.likes.length);
   } catch (error) {
     console.error(error.message);
     res.status(500).send('Server error');
