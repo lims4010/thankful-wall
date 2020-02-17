@@ -8,6 +8,10 @@ export const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul>
       <li>
+        <Link to="/about">About</Link>
+      </li>
+
+      <li>
         <a onClick={logout} href="#!">
           <i className="fas fa-sign-out-alt"></i>{' '}
           <span className="hide-sm">Logout</span>
@@ -17,6 +21,9 @@ export const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   );
   const guestLinks = (
     <ul>
+      <li>
+        <Link to="/about">About</Link>
+      </li>
       <li>
         <Link to="/login">Admin Login</Link>
       </li>
@@ -29,7 +36,7 @@ export const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           <i className="fas fa-signature"></i> Thankful Wall
         </Link>
       </h1>
-      {/* !loading && ... is ternary conditional syntax when else = null */}
+
       {!loading && (
         <Fragment>{isAuthenticated ? authLinks : guestLinks} </Fragment>
       )}

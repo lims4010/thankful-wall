@@ -45,7 +45,9 @@ router.post(
 router.get('/', async (req, res) => {
   try {
     const posts = await Post.find().sort({ date: -1 });
-    posts.forEach(post => (post.likes = post.likes.length));
+    posts.forEach(post => {
+      post.likes = post.likes.length;
+    });
     res.json(posts);
   } catch (error) {
     console.error(error.message);

@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Wall from './components/posts/Wall';
+import About from './components/about/About';
 
 //Redux
 import { Provider } from 'react-redux';
@@ -30,6 +31,7 @@ const App = () => {
             <Switch>
               <Route exact path="/" component={Wall} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/about" component={About} />
               {/* <PrivateRoute exact path="/posts" component={Posts} /> */}
             </Switch>
           </section>
