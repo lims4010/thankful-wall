@@ -5,6 +5,7 @@ const auth = require('../../middleware/auth');
 
 const Post = require('../../models/Post');
 const User = require('../../models/User');
+const Limit = require('../../models/Limit');
 
 // @route  POST api/posts
 // @desc   Create a post
@@ -24,14 +25,36 @@ router.post(
     const { text, name } = req.body;
 
     try {
+      const ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
+
+      let limit = await Limit.findOne({ ip });
+
+      if (limit) {
+        if (limit.count >= 3) {
+          return res.status(401).json({ errors: 'Limit Reached' });
+        }
+        limit.count++;
+        await limit.save();
+      } else {
+        const newLimit = new Limit({
+          ip: ip,
+          count: 1
+        });
+        await newLimit.save();
+      }
+
       const newPost = new Post({
         text: text,
         name: name ? name : 'Anonymous'
       });
-
       const post = await newPost.save();
-
       res.json(post);
+
+      setTimeout(async () => {
+        let limit = await Limit.findOne({ ip });
+        limit.count--;
+        await limit.save();
+      }, 86400000);
     } catch (error) {
       console.error(error.message);
       res.status(500).send('Server Error');

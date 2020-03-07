@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 
 const About = props => {
   return (
@@ -20,7 +19,8 @@ const About = props => {
         <span className="text-bold">
           refrain from sharing private information
         </span>
-        . As you are commuting to work or finishing up ping pong practice or
+        . To prevent spamming, there is limit of 3 posts per 24 hour period. As
+        you are commuting to work or finishing up ping pong practice or
         preparing to go to bed at night, take some time to think...what are some
         things you are thankful for today?
       </p>

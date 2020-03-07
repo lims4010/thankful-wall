@@ -84,8 +84,16 @@ export const addPost = (text, name) => async dispatch => {
   } catch (error) {
     dispatch({
       type: POST_ERROR,
-      payload: { msg: error.response.data.msg, status: error.response.status }
+      payload: {
+        msg: error.response.data.errors,
+        status: error.response.status
+      }
     });
+    if (error.response.status === 401) {
+      dispatch(
+        setAlert('Max posts reached. Please try again later.', 'danger')
+      );
+    }
   }
 };
 
