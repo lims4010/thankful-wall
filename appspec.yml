@@ -3,3 +3,7 @@ os: linux
 files:
   - source: /
     destination: /var/www/html/
+hooks:
+  ApplicationStart:
+    - location:  /var/www/html/startScript.sh
+    

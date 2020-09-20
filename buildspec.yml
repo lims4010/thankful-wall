@@ -20,10 +20,10 @@ phases:
       - cd pages && npm install && npm run build
       - cd .. && npm install
 
-  post_build:
-    commands:
-      - chmod +x startScript.sh
-      - ./startScript.sh
+  # post_build:
+  #   commands:
+  #     - chmod +x startScript.sh
+  #     - ./startScript.sh
   
 artifacts:  
   files:  
