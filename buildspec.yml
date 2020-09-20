@@ -17,17 +17,12 @@ phases:
 
   build:  
     commands:  
-      - cd pages 
-      - echo `pwd` 
-      - npm install
-      - npm run build
-      - cd ..
-      - echo `pwd`
-      - npm install
+      - cd pages && npm install && npm run build
+      - cd .. && npm install
 
   post_build:
     commands:
-      - ./startScript.sh
+      - source startScript.sh
   
 artifacts:  
   files:  
