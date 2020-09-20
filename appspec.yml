@@ -4,5 +4,9 @@ files:
   - source: /
     destination: /var/www/html/
 hooks:
+  AfterInstall:
+    - location: scripts/install_dependencies.sh
+  ServerStart:
+    - location:  scripts/start_nginx.sh
   ApplicationStart:
-    - location:  startScript.sh
+    - location:  scripts/start_script.sh

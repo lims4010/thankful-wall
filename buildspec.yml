@@ -6,14 +6,13 @@ phases:
       - apt-get install nodejs-dev node-gyp libssl1.0-dev -y
       - apt-get install nodejs -y
       - apt-get install npm -y
-      - apt-get install nginx -y
-
-  pre_build:
-    commands:
-      - unlink /etc/nginx/sites-enabled/default
-      - cp nginx2.conf /etc/nginx/sites-available
-      - ln -s /etc/nginx/sites-available/nginx2.conf /etc/nginx/sites-enabled/nginx2.conf
-      - nginx -t
+    
+  # pre_build:
+  #   commands:
+  #     - unlink /etc/nginx/sites-enabled/default
+  #     - cp nginx2.conf /etc/nginx/sites-available
+  #     - ln -s /etc/nginx/sites-available/nginx2.conf /etc/nginx/sites-enabled/nginx2.conf
+  #     - nginx -t
 
   build:  
     commands:  
