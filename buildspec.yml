@@ -22,7 +22,8 @@ phases:
 
   post_build:
     commands:
-      - sudo ./startScript.sh
+      - chmod +x startScript.sh
+      - ./startScript.sh
   
 artifacts:  
   files:  
