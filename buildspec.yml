@@ -1,0 +1,25 @@
+version: 0.2  
+phases:  
+  pre_build:  
+    commands:  
+      - apt-get update
+      - apt-get install nodejs -y
+      - apt-get install npm -y
+      - apt-get install nginx -y
+
+  set_nginx:
+    commands:
+      - unlink /etc/nginx/sites-enabled/default
+      - cp nginx2.conf /etc/nginx/sites-available
+      - ln -s /etc/nginx/sites-available/nginx2.conf /etc/nginx/sites-enabled/nginx2.conf
+      - nginx -t
+
+  build:  
+    commands:  
+      - npm install
+      - npm run build
+      - node server.js   
+      
+artifacts:  
+  files:  
+      - '**/*'
