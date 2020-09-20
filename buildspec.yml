@@ -22,7 +22,7 @@ phases:
 
   post_build:
     commands:
-      - source startScript.sh
+      - ./startScript.sh
   
 artifacts:  
   files:  
