@@ -1,0 +1,11 @@
+[Unit]
+Description=app
+
+[Service]
+Type=simple
+User=lims4010
+ExecStart=/usr/bin/node /var/www/html/server.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

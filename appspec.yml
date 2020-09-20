@@ -6,7 +6,10 @@ files:
 hooks:
   AfterInstall:
     - location: scripts/install_dependencies.sh
-  ServerStart:
+      timeout: 100
     - location:  scripts/start_nginx.sh
+      timeout: 100
+
   ApplicationStart:
     - location:  scripts/start_script.sh
+    timeout: 100
