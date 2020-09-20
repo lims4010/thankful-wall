@@ -5,5 +5,4 @@ files:
     destination: /var/www/html/
 hooks:
   ApplicationStart:
-    - location:  /var/www/html/startScript.sh
-    
+    - location:  startScript.sh
