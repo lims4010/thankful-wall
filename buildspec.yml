@@ -17,8 +17,14 @@ phases:
 
   build:  
     commands:  
-      - cd pages && npm install & npm run build
-      - npm install && node server.js   
+      - cd pages 
+      - echo `pwd` 
+      - npm install
+      - npm run build
+      - cd ..
+      - echo `pwd`
+      - npm install
+      - node server.js   
 
 artifacts:  
   files:  
