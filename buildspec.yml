@@ -3,7 +3,7 @@ phases:
   install:  
     commands:  
       - apt-get update
-      - apt-get install node-gyp -y
+      - apt-get install nodejs-dev node-gyp libssl1.0-dev -y
       - apt-get install nodejs -y
       - apt-get install npm -y
       - apt-get install nginx -y
