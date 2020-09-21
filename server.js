@@ -1,13 +1,20 @@
 const express = require('express');
-const app = express()
+
+const app = express();
+const config = require('./config/default.js');
+const port = 5000;
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send(config.mongoURI)
 })
 
-const PORT = 5000;
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
 
-app.listen(PORT, () => console.log(`Server Started on port ${PORT}`));
+
+
+
 
 // const connectDB = require('./config/db');
 // const path = require('path');

@@ -3,7 +3,7 @@ Description=app
 
 [Service]
 Type=simple
-User=lims4010
+User=root
 ExecStart=/usr/bin/node /var/www/html/server.js
 Restart=on-failure
 

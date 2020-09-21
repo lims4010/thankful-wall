@@ -25,8 +25,9 @@ const About = props => {
         things you are thankful for today?
       </p>
       <div className="quote">
-        <p>Rejoice always,</p> <p> pray continually,</p>{' '}
-        <p> give thanks in all circumstances;</p>
+        <p>Rejoice always,</p>
+        <p>pray continually,</p>
+        <p>give thanks in all circumstances;</p>
         <p>for this is God’s will for you in Christ Jesus.</p>
         <p> ― 1 Thessalonians 5:16-18</p>
       </div>
@@ -34,7 +35,7 @@ const About = props => {
         <p>“Yesterday is history,</p>
         <p>tomorrow is a mystery,</p>
         <p>and today is a gift...</p>
-        <p>that's why they call it present” </p>
+        <p>that's why they call it the present.” </p>
         <p> ― Master Oogway</p>
       </div>
 
