@@ -5,6 +5,7 @@ Description=app
 Type=simple
 User=root
 ExecStart=/usr/bin/node /var/www/html/server.js
+EnvironmentFile=/var/www/html/service_files/appEnvVar.conf
 Restart=on-failure
 
 [Install]
