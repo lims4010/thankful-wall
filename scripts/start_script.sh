@@ -2,15 +2,11 @@
 
 cd /var/www/html/
 
-pkill -f pm2
+sudo pkill -f pm2
 
 mongoURI=$(aws ssm get-parameters --region us-east-1 --names /thankful-wall/mongoURI --query Parameters[0].Value) \
 jwtSecret=$(aws ssm get-parameters --region us-east-1 --names /thankful-wall/jwtSecret --query Parameters[0].Value) \
 pm2 start server.js
-
-# mongoURI=$'mongodb+srv://lims4010:Bb84010%21@cluster0-dhlo9.mongodb.net/test?retryWrites=true&w=majority' \
-# jwtSecret=$'mysignature' \
-# pm2 restart server.js --update-env
 
 # # Copy service file to main sytem
 # cd /var/www/html/service_files
