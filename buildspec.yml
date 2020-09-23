@@ -2,15 +2,15 @@ version: 0.2
 phases:  
   install:  
     commands:  
-      - apt-get update
-      - curl https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
-      - bash nodesource_setup.sh
-      - apt install nodejs
+      # - apt-get update
+      # - curl https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
+      # - bash nodesource_setup.sh
+      # - apt install nodejs
 
   build:  
     commands:  
-      - cd pages && npm install && npm run build
-      - cd .. && npm install
+      # - cd pages && npm install && npm run build
+      # - cd .. && npm install
 
 artifacts:  
   files:  

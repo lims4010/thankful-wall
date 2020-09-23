@@ -2,7 +2,7 @@
 
 cd /var/www/html/
 
-pm2 delete all
+pkill -f pm2
 
 mongoURI=$(aws ssm get-parameters --region us-east-1 --names /thankful-wall/mongoURI --query Parameters[0].Value) \
 jwtSecret=$(aws ssm get-parameters --region us-east-1 --names /thankful-wall/jwtSecret --query Parameters[0].Value) \
