@@ -11,5 +11,7 @@ hooks:
   #     timeout: 100
 
   ApplicationStart:
+    - location: scripts/build_reactscripts.sh
+      timeout: 100
     - location: scripts/start_script.sh
       timeout: 100

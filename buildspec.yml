@@ -9,8 +9,6 @@ phases:
 
   build:  
     commands:  
-      - cd pages && npm install && npm run build
-      - cd .. && npm install
 
 artifacts:  
   files:  
