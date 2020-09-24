@@ -4,11 +4,11 @@ files:
   - source: /
     destination: /var/www/html/
 hooks:
-  AfterInstall:
-    - location: scripts/install_dependencies.sh
-      timeout: 100
-    - location: scripts/start_nginx.sh
-      timeout: 100
+  # AfterInstall:
+  #   - location: scripts/install_dependencies.sh
+  #     timeout: 100
+  #   - location: scripts/start_nginx.sh
+  #     timeout: 100
 
   ApplicationStart:
     - location: scripts/start_script.sh

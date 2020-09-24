@@ -13,7 +13,7 @@ config/LOCAL_default.json
 /coverage
 
 # production
-pages/build/*
+/pages/build/*
 
 # misc
 .DS_Store
