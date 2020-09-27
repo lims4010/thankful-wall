@@ -1,6 +1,6 @@
 module.exports = 
     {
-        "mongoURI": process.env.mongoURI.replace(/"/g,""),
-        "jwtSecret": process.env.jwtSecret.replace(/"/g,"")
+        "mongoURI": process.env.mongoURI,
+        "jwtSecret": process.env.jwtSecret
     }      
 ;

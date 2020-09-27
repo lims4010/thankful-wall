@@ -5,10 +5,15 @@ cd /var/www/html/
 sudo pkill -f pm2
 
 ## Start pm2 service
-mongoURI=$(aws ssm get-parameters --region us-east-1 --names /thankful-wall/mongoURI --query Parameters[0].Value) \
-jwtSecret=$(aws ssm get-parameters --region us-east-1 --names /thankful-wall/jwtSecret --query Parameters[0].Value) \
-pm2 start server.js
+export mongoURI=$(aws ssm get-parameters --region us-east-1 --names /thankful-wall/mongoURI --query Parameters[0].Value)
+export mongoURI=$(echo "$mongoURI"|tr -d '"')  
 
+export jwtSecret=$(aws ssm get-parameters --region us-east-1 --names /thankful-wall/jwtSecret --query Parameters[0].Value)
+export jwtSecret=$(echo "$jwtSecret"|tr -d '"')  
+
+mongoURI=$mongoURI \
+jwtSecret=$jwtSecret \
+pm2 start server.js
 
 ### OLD COMMANDS using systemd
 
