@@ -18,7 +18,8 @@
     "request": "^2.88.0"
   },
   "scripts": {
-    "start": "node server",
+    "start": "npm install && node server.js",
+    "heroku-postbuild": "cd pages && npm install && npm run build",
     "server": "nodemon server",
     "build": "react-scripts build",
     "test": "react-scripts test",
