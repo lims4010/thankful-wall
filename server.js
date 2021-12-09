@@ -1,4 +1,4 @@
-const { get } = require("snekfetch");
+import fetch from 'node-fetch';
 const express = require('express');
 const connectDB = require('./config/db');
 const path = require('path');
@@ -31,7 +31,7 @@ app.listen(PORT, () => console.log(`Server Started on port ${PORT}`));
 setInterval(() => {
   try {
     const url = "https://thankful-wall.herokuapp.com"
-    get(url).then((r) => console.log(`Self ping`));
+    fetch(url).then((r) => console.log(`Self ping`));
   } catch (err) {
     console.error(err);
   }
