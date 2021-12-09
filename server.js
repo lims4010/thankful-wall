@@ -26,6 +26,16 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server Started on port ${PORT}`));
 
+// ping self to avoid heroku idling
+setInterval(() => {
+  try {
+    const url = "https://thankful-wall.herokuapp.com"
+    get(url).then((r) => console.log(`Self ping`));
+  } catch (err) {
+    console.error(err);
+  }
+}, 300000);
+
 // // TESTING
 // const express = require('express');
 // const app = express();
