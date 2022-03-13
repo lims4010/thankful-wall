@@ -45,22 +45,23 @@ export const addLike = postId => async dispatch => {
   }
 };
 
+// 3/13/22 - Removed feature. Include in Like logic.
 // remove like
-export const removeLike = postId => async dispatch => {
-  try {
-    const res = await axios.put(`/api/posts/unlike/${postId}`);
+// export const removeLike = postId => async dispatch => {
+//   try {
+//     const res = await axios.put(`/api/posts/unlike/${postId}`);
 
-    dispatch({
-      type: UPDATE_LIKES,
-      payload: { postId, likes: res.data }
-    });
-  } catch (error) {
-    dispatch({
-      type: POST_ERROR,
-      payload: { msg: error.response.data.msg, status: error.response.status }
-    });
-  }
-};
+//     dispatch({
+//       type: UPDATE_LIKES,
+//       payload: { postId, likes: res.data }
+//     });
+//   } catch (error) {
+//     dispatch({
+//       type: POST_ERROR,
+//       payload: { msg: error.response.data.msg, status: error.response.status }
+//     });
+//   }
+// };
 
 // add post
 export const addPost = (text, name) => async dispatch => {

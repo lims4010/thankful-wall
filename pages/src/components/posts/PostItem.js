@@ -2,11 +2,10 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
-import { addLike, removeLike, deletePost } from '../../actions/post';
+import { addLike, deletePost } from '../../actions/post';
 
 const PostItem = ({
   addLike,
-  removeLike,
   deletePost,
   auth,
   post: { _id, text, name, likes, date },
@@ -32,13 +31,6 @@ const PostItem = ({
               <i class="fas fa-thumbs-up"></i>{' '}
               {likes > 0 && <span>{likes}</span>}
             </button>
-            <button
-              onClick={e => removeLike(_id)}
-              type="button"
-              class="btn btn-light"
-            >
-              <i class="fas fa-thumbs-down"></i>
-            </button>
             {!auth.loading && auth.isAuthenticated && (
               <button
                 onClick={e => deletePost(_id)}
@@ -63,7 +55,6 @@ PostItem.propTypes = {
   post: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
   addLike: PropTypes.func.isRequired,
-  removeLike: PropTypes.func.isRequired,
   deletePost: PropTypes.func.isRequired
 };
 
@@ -71,6 +62,6 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { addLike, removeLike, deletePost })(
+export default connect(mapStateToProps, { addLike, deletePost })(
   PostItem
 );

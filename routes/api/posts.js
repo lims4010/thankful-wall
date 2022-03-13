@@ -108,9 +108,12 @@ router.put('/like/:id', async (req, res) => {
     const ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
     //Check if post has already been liked
     if (post.likes.includes(ip)) {
-      return res.status(400).json({ msg: 'Post already liked' });
+       // Get remove index
+      const removeIndex = post.likes.indexOf(ip);
+      post.likes.splice(removeIndex, 1);
+    } else {
+      post.likes.unshift(ip);
     }
-    post.likes.unshift(ip);
     await post.save();
     res.json(post.likes.length);
   } catch (error) {
@@ -119,26 +122,28 @@ router.put('/like/:id', async (req, res) => {
   }
 });
 
+// 3/13/22 - Removed feature. Include in Like logic.
 // @route  PUT api/posts/unlike/:id
 // @desc   Unlike a post
 
-router.put('/unlike/:id', async (req, res) => {
-  try {
-    const post = await Post.findById(req.params.id);
-    const ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
-    //Check if post has not been liked
-    if (!post.likes.includes(ip)) {
-      return res.status(400).json({ msg: 'Post has not yet been liked' });
-    }
+// router.put('/unlike/:id', async (req, res) => {
+//   try {
+//     const post = await Post.findById(req.params.id);
+//     const ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
+//     //Check if post has not been liked
+//     if (!post.likes.includes(ip)) {
+//       return res.status(400).json({ msg: 'Post has not yet been liked' });
+//     }
 
-    // Get remove index
-    const removeIndex = post.likes.indexOf(ip);
-    post.likes.splice(removeIndex, 1);
-    await post.save();
-    res.json(post.likes.length);
-  } catch (error) {
-    console.error(error.message);
-    res.status(500).send('Server error');
-  }
-});
+//     // Get remove index
+//     const removeIndex = post.likes.indexOf(ip);
+//     post.likes.splice(removeIndex, 1);
+//     await post.save();
+//     res.json(post.likes.length);
+//   } catch (error) {
+//     console.error(error.message);
+//     res.status(500).send('Server error');
+//   }
+// });
+
 module.exports = router;
