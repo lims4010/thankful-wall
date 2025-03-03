@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  thankful-wall-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    env_file:
+      - ./server/.env
+    environment:
+      - NODE_ENV=production
+      - PORT=5001
+      # AWS Configuration
+      - AWS_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=your_access_key_id
+      - AWS_SECRET_ACCESS_KEY=your_secret_access_key
+      # Auth0 Configuration
+      - AUTH0_DOMAIN=your_auth0_domain
+      - AUTH0_AUDIENCE=your_auth0_audience
+      - AUTH0_CLIENT_ID=your_auth0_client_id
+      # CORS Configuration (if needed)
+      - CORS_ORIGIN=*
+    restart: unless-stopped
+    volumes:
+      # Optional: Mount a volume for logs or data persistence if needed
+      - ./logs:/app/logs 
